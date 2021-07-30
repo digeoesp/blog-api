@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
@@ -12,9 +13,8 @@ const multer = require("multer");
 const path = require("path");
 const PORT = process.env.PORT || 5000;
 
-dotenv.config();
-app.use(express.json());
 app.use(cors()); // allow all CORS requests
+app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 //comment
 mongoose
