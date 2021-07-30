@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors()); // allow all CORS requests
 app.use(express.json());
-app.use("/api/images", express.static(path.join(__dirname, "/images")));
+app.use("/api/images", express.static(path.join(__dirname, "/api/images")));
 //comment
 mongoose
     .connect(process.env.MONGO_URL, {
