@@ -15,7 +15,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors()); // allow all CORS requests
 app.use(express.json());
-app.use("/images", express.static(path.join(__dirname, "/images")));
 
 //comment
 mongoose
@@ -41,7 +40,7 @@ const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
     res.status(200).json("File has been uploaded");
 });
-
+app.use("/api/images", express.static(path.join(__dirname, "/images")));
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
